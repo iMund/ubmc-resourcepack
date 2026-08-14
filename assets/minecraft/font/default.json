@@ -10,6 +10,6 @@
     { "type": "bitmap", "file": "minecraft:font/tags/builder.png",  "ascent": 10, "height": 12, "chars": [""] },
     { "type": "bitmap", "file": "minecraft:font/tags/vip.png",      "ascent": 11, "height": 14, "chars": [""] },
     { "type": "bitmap", "file": "minecraft:font/tags/youtuber.png", "ascent": 10, "height": 12, "chars": [""] },
-    { "type": "bitmap", "file": "minecraft:font/tags/member.png",   "ascent": 10, "height": 12, "chars": [""] }
+    { "type": "bitmap", "file": "minecraft:font/tags/member.png",   "ascent": 8, "height": 10, "chars": [""] }
   ]
 }
