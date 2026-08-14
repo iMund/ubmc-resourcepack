@@ -57,7 +57,25 @@ de texto comum, mas está lá.
    embutido no texto certo.
 6. Reinicie o servidor do lobby pra ele oferecer o pack novo aos jogadores.
 
+## Cuidado ao editar `assets/minecraft/font/default.json`
+
+O primeiro provider dessa lista **não pode** ser `{"type": "reference", "id": "minecraft:default"}` -
+esse arquivo *é* a fonte `minecraft:default`, então isso é uma referência circular (o jogo recusa
+carregar o pack inteiro com `IllegalStateException: Default font failed to load`, log mostra "part of
+loading cycle"). O jeito certo, confirmado extraindo o `default.json` real de dentro do jar do
+cliente, é referenciar os providers internos de verdade que o vanilla usa:
+
+```json
+{ "type": "reference", "id": "minecraft:include/space" },
+{ "type": "reference", "id": "minecraft:include/default", "filter": { "uniform": false } },
+{ "type": "reference", "id": "minecraft:include/unifont" },
+```
+
+...e só depois adicionar os providers `bitmap` customizados, depois desses três. Isso preserva a fonte
+padrão inteira (incluindo unicode/CJK) e só adiciona os ícones customizados por cima.
+
 ## Versão atual
 
-`v1.0.0` - as 8 tags de rank originais (owner/admin/manager/mod/builder/vip/youtuber/member), extraídas
-de imagens feitas em nogard.dev.
+`v1.0.2` - as 8 tags de rank originais (owner/admin/manager/mod/builder/vip/youtuber/member), extraídas
+de imagens feitas em nogard.dev. (v1.0.1 corrigiu o schema do pack.mcmeta; v1.0.2 corrigiu a
+referência circular acima - as duas eram bugs reais que impediam o pack de carregar.)
