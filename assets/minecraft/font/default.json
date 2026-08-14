@@ -1,6 +1,8 @@
 {
   "providers": [
-    { "type": "reference", "id": "minecraft:default" },
+    { "type": "reference", "id": "minecraft:include/space" },
+    { "type": "reference", "id": "minecraft:include/default", "filter": { "uniform": false } },
+    { "type": "reference", "id": "minecraft:include/unifont" },
     { "type": "bitmap", "file": "minecraft:font/tags/owner.png",    "ascent": 7, "height": 9, "chars": [""] },
     { "type": "bitmap", "file": "minecraft:font/tags/admin.png",    "ascent": 7, "height": 9, "chars": [""] },
     { "type": "bitmap", "file": "minecraft:font/tags/manager.png",  "ascent": 7, "height": 9, "chars": [""] },
